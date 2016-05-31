@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+  <head>
+
+    <base href="/job/">
+
+    <title>Demo Application</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <!-- build:css app.css -->
+
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.css">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="libs/angular-xeditable/dist/css/xeditable.css">
+    <link rel="stylesheet" href="libs/ui-select/dist/select.css">
+    <!-- endinject -->
+
+    <link rel="stylesheet" href="styles/css/app.css">
+
+    <!-- endbuild -->
+
+  </head>
+  <body>
+
+    <!-- <strong>Open AIM - Analyzer Interface Management</strong> -->
+
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-2"> <!-- ng-if="Auth.isLogged()"> -->
+                    <div class="list-group">
+                        <nav-bar></nav-bar>
+                    </div>
+                </div>
+                <div ui-view class="col-xs-10">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- build:js app.js -->
+
+    <!-- bower:js -->
+    <script src="libs/jquery/dist/jquery.js"></script>
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/angular-route/angular-route.js"></script>
+    <script src="libs/angular-cookies/angular-cookies.js"></script>
+    <script src="libs/angular-resource/angular-resource.js"></script>
+    <script src="libs/angular-sanitize/angular-sanitize.js"></script>
+    <script src="libs/angular-animate/angular-animate.js"></script>
+    <script src="libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="libs/angular-translate/angular-translate.js"></script>
+    <script src="libs/angular-xeditable/dist/js/xeditable.js"></script>
+    <script src="libs/ui-select/dist/select.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:js -->
+    <script src="app.js"></script>
+    <script src="components/login/login.js"></script>
+    <script src="components/login/login.controller.js"></script>
+    <script src="components/home/home.js"></script>
+    <script src="components/home/home.controller.js"></script>
+    <script src="services/auth/auth.js"></script>
+    <script src="directives/nav-bar/nav-bar.directive.js"></script>
+    <script src="util/resource.js"></script>
+    <script src="util/constant.js"></script>
+    <!-- endinject -->
+  </body>
+</html>
