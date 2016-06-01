@@ -1,0 +1,46 @@
+body {
+    font-family: sans-serif; }
+.navbar {
+    background: #000000;
+}
+.app-name {
+	color: #FFCC00;
+}
+.navbar .navbar-nav > li > a,
+.navbar-nav .dropdown-menu > li > a {
+	color: #cccccc;
+	min-width: 150px;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:active,
+.navbar .navbar-nav > li > a:focus {
+	color: #ffffff;
+	background: #000000;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #000000;
+    border-color: none;
+}
+.navbar-nav .dropdown-menu {
+	margin-top: 1px !important;
+	padding: 0px;
+	border: none;
+}
+.navbar-nav .dropdown-menu > li {
+	margin-top: 1px;
+}
+.navbar-nav .dropdown-menu > li > a {
+	background: #000000;
+	color: #cccccc;
+	padding-left: 15px;
+}
+.navbar .navbar-nav .dropdown-menu > li > a:hover,
+.navbar .navbar-nav .dropdown-menu > li > a:active,
+.navbar .navbar-nav .dropdown-menu > li > a:focus {
+	color: #ffffff;
+	background: #000000;
+}
+.login-box-body {
+	background-color: #ffffff;
+}
