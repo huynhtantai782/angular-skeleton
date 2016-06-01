@@ -1,13 +1,12 @@
 'use strict';
 
-angular.module('demoApp')
-  .service('Auth', function ($rootScope, $cookieStore, $q, $http) {
+angular.module('Auth', ['Util'])
+  .service('Auth', function ($rootScope, $cookieStore, $q, $http, Constant) {
 
     var _user = {};
     var _ready = $q.defer();
-
-    if ($cookieStore.get('token')) {
-      $http.get('/api/users/me')
+    if ($cookieStore.get('EQO-token')) {
+      $http.get(Constant.serviceURL.USER)
         .then(function (res) {
           _user = res.data;
         })
@@ -29,7 +28,7 @@ angular.module('demoApp')
       $http.post('/api/users', user)
         .then(function (res) {
           _user = res.data.user;
-          $cookieStore.put('token', res.data.token);
+          $cookieStore.put('EQO-token', res.data.token);
           deferred.resolve();
         })
         .catch(function (err) {
@@ -46,7 +45,7 @@ angular.module('demoApp')
      */
     this.login = function (user) {
       var deferred = $q.defer();
-      $http.post('/auth/local', user)
+      /*$http.post('/auth/local', user)
         .then(function (res) {
           _user = res.data.user;
           $cookieStore.put('token', res.data.token);
@@ -54,6 +53,16 @@ angular.module('demoApp')
         })
         .catch(function (err) {
           deferred.reject(err.data);
+        });*/
+      $http.get(Constant.serviceURL.USER)
+        .then(function (res) {
+          if(user.username == res.data.username && user.pwd == res.data.pwd) {
+            _user = res.data;
+            $cookieStore.put('EQO-token', Constant.TOKEN);
+            deferred.resolve();
+          } else {
+            deferred.reject();
+          }
         });
       return deferred.promise;
     };
@@ -62,7 +71,7 @@ angular.module('demoApp')
      * Logout
      */
     this.logout = function () {
-      $cookieStore.remove('token');
+      $cookieStore.remove('EQO-token');
       _user = {};
     };
 
@@ -72,7 +81,7 @@ angular.module('demoApp')
      * @returns {boolean}
      */
     this.isLogged = function () {
-      return _user.hasOwnProperty('_id');
+      return _user.hasOwnProperty('id');
     };
 
     /**
@@ -83,7 +92,7 @@ angular.module('demoApp')
     this.isReadyLogged = function () {
       var def = $q.defer();
       _ready.promise.then(function () {
-        if (_user.hasOwnProperty('_id')) {
+        if (_user.hasOwnProperty('id')) {
           def.resolve();
         } else {
           def.reject();
