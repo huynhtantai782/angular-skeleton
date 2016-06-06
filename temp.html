@@ -1,0 +1,13 @@
+<script>
+    $(document).ready(function() {
+        $(".nav-menu-item").each(function(){
+            var li = $(this);
+            li.click(function (e) {
+                $(this).addClass('active');
+                $(this).prevAll().removeClass('active');
+                $(this).nextAll().removeClass('active');
+            });
+            
+        });
+    });
+    </script>
