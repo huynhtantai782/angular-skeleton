@@ -1,0 +1,27 @@
+/*CUSTOM PAGING*/
+
+.my-pagination.pagination > li > a,
+.my-pagination.pagination > li > span {
+    border-radius: 0 !important;
+    background-color: #222 !important;
+    border-color: #080808 !important;
+    color: #9d9d9d !important;
+}
+
+.my-pagination.pagination > li > a:hover,
+.my-pagination.pagination > li > span:hover,
+.my-pagination.pagination > li > a:focus,
+.my-pagination.pagination > li > span:focus {
+    color: #fff !important;
+    background: #333 !important;
+}
+
+.my-pagination.pagination > .active > a,
+.my-pagination.pagination > .active > span,
+.my-pagination.pagination > .active > a:hover,
+.my-pagination.pagination > .active > span:hover,
+.my-pagination.pagination > .active > a:focus,
+.my-pagination.pagination > .active > span:focus {
+    color: #fff !important;
+    background: #333 !important;
+}
